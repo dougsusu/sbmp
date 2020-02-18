@@ -1,0 +1,29 @@
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '名称',
+  `age` int(11) NULL DEFAULT NULL,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB  CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+INSERT INTO `user` VALUES (1, '后裔', 20, '2020-02-04 16:17:44');
+INSERT INTO `user` VALUES (2, '貂蝉', 18, '2020-02-05 04:33:47');
+INSERT INTO `user` VALUES (3, '刘禅', 7, '2020-02-07 09:21:51');
+
+
+DROP TABLE IF EXISTS `user_vip`;
+CREATE TABLE `user_vip`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `user_id` int(11) NULL DEFAULT NULL COMMENT '用户主键',
+  `vip_level` int(11) NULL DEFAULT NULL COMMENT '会员等级',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB  CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+INSERT INTO `user_vip` VALUES (1, 1, 1, '2020-02-04 17:06:06');
+INSERT INTO `user_vip` VALUES (2, 2, 3, '2020-02-04 17:03:34');
+INSERT INTO `user_vip` VALUES (3, 3, 2, '2020-02-03 17:03:44');
+
+SET FOREIGN_KEY_CHECKS = 1;
